@@ -82,29 +82,29 @@
 
 ## Traceability
 
-| Requirement | Phase | Status |
-|-------------|-------|--------|
-| ENV-01 | Phase 1 | Pending |
-| ENV-02 | Phase 1 | Pending |
-| ENV-03 | Phase 1 | Pending |
-| ENV-04 | Phase 1 | Pending |
-| ENV-05 | Phase 1 | Pending |
-| ENV-06 | Phase 1 | Pending |
-| ENV-07 | Phase 1 | Pending |
-| TRAIN-01 | Phase 2 | Pending |
-| TRAIN-02 | Phase 2 | Pending |
-| TRAIN-03 | Phase 2 | Pending |
-| TRAIN-04 | Phase 2 | Pending |
-| EXPORT-01 | Phase 3 | Pending |
-| EXPORT-02 | Phase 3 | Pending |
-| BROWSER-01 | Phase 4 | Pending |
-| BROWSER-02 | Phase 4 | Pending |
-| BROWSER-03 | Phase 4 | Pending |
-| UI-01 | Phase 4 | Pending |
-| UI-02 | Phase 4 | Pending |
-| DEPLOY-01 | Phase 5 | Pending |
-| DEPLOY-02 | Phase 5 | Pending |
-| DEPLOY-03 | Phase 5 | Pending |
+| Requirement | Phase | Phase Name | Status |
+|-------------|-------|------------|--------|
+| ENV-01 | Phase 1 | Environment | Pending |
+| ENV-02 | Phase 1 | Environment | Pending |
+| ENV-03 | Phase 1 | Environment | Pending |
+| ENV-04 | Phase 1 | Environment | Pending |
+| ENV-05 | Phase 1 | Environment | Pending |
+| ENV-06 | Phase 1 | Environment | Pending |
+| ENV-07 | Phase 1 | Environment | Pending |
+| TRAIN-01 | Phase 2 | Training | Pending |
+| TRAIN-02 | Phase 2 | Training | Pending |
+| TRAIN-03 | Phase 2 | Training | Pending |
+| TRAIN-04 | Phase 2 | Training | Pending |
+| EXPORT-01 | Phase 3 | ONNX Export | Pending |
+| EXPORT-02 | Phase 3 | ONNX Export | Pending |
+| BROWSER-01 | Phase 4 | Browser Core | Pending |
+| BROWSER-02 | Phase 4 | Browser Core | Pending |
+| BROWSER-03 | Phase 4 | Browser Core | Pending |
+| UI-01 | Phase 4 | Browser Core | Pending |
+| UI-02 | Phase 4 | Browser Core | Pending |
+| DEPLOY-01 | Phase 5 | UI, Polish & Deploy | Pending |
+| DEPLOY-02 | Phase 5 | UI, Polish & Deploy | Pending |
+| DEPLOY-03 | Phase 5 | UI, Polish & Deploy | Pending |
 
 **Coverage:**
 - v1 requirements: 21 total
@@ -113,4 +113,4 @@
 
 ---
 *Requirements defined: 2026-03-28*
-*Last updated: 2026-03-28 after initial definition*
+*Last updated: 2026-03-28 after roadmap creation*
