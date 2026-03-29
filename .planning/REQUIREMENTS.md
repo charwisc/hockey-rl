@@ -14,7 +14,7 @@
 - [ ] **ENV-03**: Puck physics include momentum, board bouncing, ice friction coefficient, and puck-stick interaction on contact
 - [ ] **ENV-04**: Action space per agent: 2D movement direction, speed scalar, stick swing angle (continuous)
 - [ ] **ENV-05**: Observation space per agent is egocentric: own pos/vel, puck pos/vel, teammate pos/vel, both opponent pos/vel (single shared policy drives all 4 agents via egocentric observations)
-- [ ] **ENV-06**: Canonical observation vector layout is documented as a numbered, immutable spec before any JS code is written
+- [x] **ENV-06**: Canonical observation vector layout is documented as a numbered, immutable spec before any JS code is written
 - [ ] **ENV-07**: Shaped reward function implements: goal scored (+10), puck-toward-opponent-goal (continuous small), puck possession (continuous small), positioning quality bonus, anti-clustering penalty, per-step penalty
 
 ### Training

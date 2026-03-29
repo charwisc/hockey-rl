@@ -1,3 +1,19 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: executing
+stopped_at: Completed 01-environment-01-01-PLAN.md
+last_updated: "2026-03-29T18:25:03.847Z"
+last_activity: 2026-03-29
+progress:
+  total_phases: 5
+  completed_phases: 0
+  total_plans: 4
+  completed_plans: 1
+  percent: 0
+---
+
 # Project State
 
 ## Project Reference
@@ -5,20 +21,21 @@
 See: .planning/PROJECT.md (updated 2026-03-28)
 
 **Core value:** End-to-end ML engineering artifact — dm_control env, self-play PPO training, ONNX export, browser inference — demonstrating RL systems fluency to technical hiring managers
-**Current focus:** Phase 1 — Environment
+**Current focus:** Phase 01 — environment
 
 ## Current Position
 
-Phase: 1 of 5 (Environment)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-03-28 — Roadmap created, REQUIREMENTS.md traceability confirmed
+Phase: 01 (environment) — EXECUTING
+Plan: 2 of 4
+Status: Ready to execute
+Last activity: 2026-03-29
 
 Progress: [░░░░░░░░░░] 0%
 
 ## Performance Metrics
 
 **Velocity:**
+
 - Total plans completed: 0
 - Average duration: — min
 - Total execution time: 0 hours
@@ -30,10 +47,12 @@ Progress: [░░░░░░░░░░] 0%
 | - | - | - | - |
 
 **Recent Trend:**
+
 - Last 5 plans: —
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01-environment P01 | 3 | 3 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -46,6 +65,9 @@ Recent decisions affecting current work:
 - Roadmap: EXPORT-02 parity validation is a mandatory gate before Phase 4 begins
 - Roadmap: Phase 2 training is human-executed on RunPod — not a CI step
 - Roadmap: BROWSER-01 (JS physics mirror) is first in Phase 4 with explicit fidelity success criteria
+- [Phase 01-environment]: Python 3.12 used (3.11 unavailable); dm-control==1.0.38 + mujoco==3.6.0 pin confirmed working
+- [Phase 01-environment]: obs_spec.py established as cross-boundary contract (22-float, 12 named fields, version 1.0.0)
+- [Phase 01-environment]: env/ package force-added past global gitignore (WSL ~/.gitignore_global blocks env/ dirs)
 
 ### Pending Todos
 
@@ -58,6 +80,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-28
-Stopped at: Roadmap created, files written, ready to plan Phase 1
+Last session: 2026-03-29T18:25:03.845Z
+Stopped at: Completed 01-environment-01-01-PLAN.md
 Resume file: None
