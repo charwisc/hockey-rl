@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **UI hint**: no
 
 ### Phase 2: Training
-**Goal**: A complete self-play PPO training run on RunPod RTX 4090 producing 50–100M step checkpoints — this is a human-executed step on a remote GPU VM, not an automated CI step
+**Goal**: A complete self-play PPO training run on RunPod RTX 4090 producing 50-100M step checkpoints — this is a human-executed step on a remote GPU VM, not an automated CI step
 **Depends on**: Phase 1
 **Requirements**: TRAIN-01, TRAIN-02, TRAIN-03, TRAIN-04
 **Success Criteria** (what must be TRUE):
@@ -42,7 +42,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. At least one checkpoint exists past 50M steps with a .zip SB3 artifact and matching VecNormalize stats
   3. Checkpoints are labelled by step count and saved to persistent RunPod volume at 30-minute wall-time intervals
   4. TensorBoard logs are downloadable and contain episode reward, goal rate, and puck possession per checkpoint
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 02-01-PLAN.md — SB3 callbacks (self-play pool, wall-time checkpoint, TensorBoard) + HockeyEnv opponent_path bridge
+- [ ] 02-02-PLAN.md — train.py entry point, requirements-train.txt, integration tests
 
 ### Phase 3: ONNX Export
 **Goal**: The trained SB3 policy is exported to ONNX opset 17/18, VecNormalize stats are exported as a sidecar JSON, and a numerical parity validation script confirms action delta < threshold — this gate must pass before any browser integration begins
@@ -81,12 +84,12 @@ Decimal phases appear between their surrounding integers in numeric order.
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Environment | 0/TBD | Not started | - |
-| 2. Training | 0/TBD | Not started | - |
+| 2. Training | 0/2 | Planned | - |
 | 3. ONNX Export | 0/TBD | Not started | - |
 | 4. Browser Core | 0/TBD | Not started | - |
 | 5. UI, Polish & Deploy | 0/TBD | Not started | - |
