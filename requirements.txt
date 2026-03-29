@@ -1,0 +1,4 @@
+dm-control==1.0.38
+gymnasium==0.29.1
+numpy
+pytest
