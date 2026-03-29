@@ -38,16 +38,20 @@ class HockeyTask(composer.Task):
         self._time_limit = time_limit
         self._score = [0, 0]      # [team0, team1]
         self._goal_scored_this_step = False
+        self._entities_attached = False
 
     @property
     def root_entity(self):
         return self._arena
 
     def initialize_episode_mjcf(self, random_state):
-        """Attach entities to arena. Called once at compile time."""
+        """Attach entities to arena. Called on each reset; guard prevents double-attach."""
+        if self._entities_attached:
+            return
         for player in self._players:
             self._arena.attach(player)
         self._arena.attach(self._puck)
+        self._entities_attached = True
 
     def initialize_episode(self, physics, random_state):
         """Reset to face-off: players to starting positions, puck to center."""

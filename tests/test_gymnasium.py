@@ -1,9 +1,9 @@
 """Gymnasium API compliance tests."""
 import pytest
 import numpy as np
+from env.hockey_env import HockeyEnv
 
 
-@pytest.mark.xfail(reason="HockeyEnv not yet implemented")
 def test_action_space_spec(env):
     """ENV-04: Action space shape==(4,), dtype==float32, bounds [-1, 1]."""
     assert env.action_space.shape == (4,)
@@ -12,8 +12,11 @@ def test_action_space_spec(env):
     assert np.all(env.action_space.high == 1.0)
 
 
-@pytest.mark.xfail(reason="HockeyEnv not yet implemented")
-def test_check_env_passes(env):
+def test_check_env_passes():
     """Gymnasium check_env() passes with zero warnings."""
     from gymnasium.utils.env_checker import check_env
-    check_env(env.unwrapped, skip_render_check=True)
+    env = HockeyEnv(agent_idx=0)
+    try:
+        check_env(env, skip_render_check=True)
+    finally:
+        env.close()

@@ -116,20 +116,17 @@ def test_board_bounce_angle(puck_env):
     assert final_vx < 0, f"Puck did not bounce: final vx={final_vx:.3f}"
 
 
-@pytest.mark.xfail(reason="HockeyEnv not yet implemented")
 def test_agents_load(env):
     """ENV-02: 4 capsule agents load with stick geoms and actuators."""
+    env.reset()
     physics = env.unwrapped._dm_env.physics
-    for i in range(4):
-        team = i // 2
-        idx = i % 2
-        prefix = f"player_{team}_{idx}"
-        # Capsule geom exists
-        # Stick geom exists
-        # 3 actuators (vx, vy, vrot) exist
+    # 4 players x 3 actuators each = 12 total actuators
+    assert physics.model.nu == 12, f"Expected 12 actuators, got {physics.model.nu}"
+    # Verify physics is accessible
+    assert physics is not None
+    assert not np.any(np.isnan(physics.data.qpos)), "NaN in initial qpos"
 
 
-@pytest.mark.xfail(reason="HockeyEnv not yet implemented")
 def test_1000_steps_no_nan(env):
     """SC-1: Alias for puck_stability_1000steps with explicit NaN focus."""
     obs, _ = env.reset(seed=42)
