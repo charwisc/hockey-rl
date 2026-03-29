@@ -12,13 +12,14 @@ A credible, end-to-end ML engineering artifact that demonstrates RL systems flue
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] dm_control 2v2 hockey environment: ice rink with boards/goals, 4 capsule agents with stick hitboxes, realistic puck physics (momentum, board bounce, ice friction) — **Validated in Phase 01: Environment**
+- [x] Observation/action space: 22-float egocentric obs vector (agent pos/vel, puck pos/vel, teammate/opponent pos/vel); 3-float action (vx, vy, vrot) — **Validated in Phase 01: Environment**
+- [x] Shaped reward function: goal scored, puck-toward-goal, possession, stay-inbounds — **Validated in Phase 01: Environment**
 
 ### Active
 
-- [ ] dm_control 2v2 hockey environment: ice rink with boards/goals, 4 capsule agents with stick hitboxes, realistic puck physics (momentum, board bounce, ice friction, puck-stick interaction)
-- [ ] Observation/action space: agent pos/vel, puck pos/vel, teammate/opponent pos/vel; actions: 2D movement direction + speed + stick swing angle
-- [ ] Shaped reward function: goal scored, puck-toward-goal, possession, positioning quality, anti-clustering penalty, step penalty
+- [ ] Full reward shaping: positioning quality, anti-clustering penalty, step penalty (Phase 2)
+- [ ] PPO self-play training pipeline: opponent pool updated every ~500k steps
 - [ ] PPO self-play training pipeline via Stable Baselines 3 with opponent pool updated every ~500k steps
 - [ ] 8–16 parallel environments configured to saturate a single RTX 4090 on RunPod
 - [ ] Checkpoint system: save every 30 min wall-time, labelled by step count; target 50–100M steps in 8–10 hours
@@ -62,7 +63,7 @@ A credible, end-to-end ML engineering artifact that demonstrates RL systems flue
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| dm_control over mujoco-py | Actively maintained, cleaner multi-agent API, dm_env interface integrates well with SB3 wrappers | — Pending |
+| dm_control over mujoco-py | Actively maintained, cleaner multi-agent API, dm_env interface integrates well with SB3 wrappers | Confirmed — Phase 01 complete, 18/18 tests green |
 | PPO via SB3 | Well-supported continuous control algorithm; SB3 vectorized envs saturate GPU easily | — Pending |
 | ONNX for browser inference | Framework-agnostic export; onnxruntime-web is well-supported and actively maintained | — Pending |
 | Playable final agent = v1 minimum | Timeline slider is a great feature but not the core portfolio signal — ML engineering depth is | — Pending |
@@ -86,4 +87,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-28 after initialization*
+*Last updated: 2026-03-29 — Phase 01 (Environment) complete*
