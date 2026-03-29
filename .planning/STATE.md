@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-environment-01-02-PLAN.md
-last_updated: "2026-03-29T18:28:46.524Z"
+stopped_at: Completed 01-environment-01-03-PLAN.md
+last_updated: "2026-03-29T18:34:33.770Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 4
-  completed_plans: 2
+  completed_plans: 3
   percent: 0
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 ## Current Position
 
 Phase: 01 (environment) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 Status: Ready to execute
 Last activity: 2026-03-29
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01-environment P01 | 3 | 3 tasks | 10 files |
 | Phase 01-environment P02 | 2 | 2 tasks | 3 files |
+| Phase 01-environment P03 | 3 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -71,6 +72,9 @@ Recent decisions affecting current work:
 - [Phase 01-environment]: env/ package force-added past global gitignore (WSL ~/.gitignore_global blocks env/ dirs)
 - [Phase 01-environment]: slide+hinge joints chosen over freejoint for puck — eliminates out-of-plane rotation and puck-edge contact instability
 - [Phase 01-environment]: contype=5 for puck (bits 0+2): bit 2 collides with boards now; bit 0 reserved for stick geoms (Plan 03)
+- [Phase 01-environment]: physics.bind(joint).qpos returns shape-(1,) SynchronizingArrayWrapper — all scalar reads require [0] indexing
+- [Phase 01-environment]: obs[20] stick_angle RESERVED/always-zero in v1.0.0 — no independent stick joint; stick_angle action controls body vrot
+- [Phase 01-environment]: Possession detection uses stick tip approximation (agent_pos + 0.4m facing direction) — avoids contact-sensor complexity
 
 ### Pending Todos
 
@@ -83,6 +87,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T18:28:46.522Z
-Stopped at: Completed 01-environment-01-02-PLAN.md
+Last session: 2026-03-29T18:34:33.768Z
+Stopped at: Completed 01-environment-01-03-PLAN.md
 Resume file: None
