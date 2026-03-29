@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 01-environment-01-03-PLAN.md
-last_updated: "2026-03-29T18:34:33.770Z"
+status: verifying
+stopped_at: Completed 01-environment-01-04-PLAN.md
+last_updated: "2026-03-29T18:41:06.601Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
   percent: 0
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 
 Phase: 01 (environment) — EXECUTING
 Plan: 4 of 4
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-03-29
 
 Progress: [░░░░░░░░░░] 0%
@@ -55,6 +55,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-environment P01 | 3 | 3 tasks | 10 files |
 | Phase 01-environment P02 | 2 | 2 tasks | 3 files |
 | Phase 01-environment P03 | 3 | 2 tasks | 2 files |
+| Phase 01-environment P04 | 4 | 3 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,8 @@ Recent decisions affecting current work:
 - [Phase 01-environment]: physics.bind(joint).qpos returns shape-(1,) SynchronizingArrayWrapper — all scalar reads require [0] indexing
 - [Phase 01-environment]: obs[20] stick_angle RESERVED/always-zero in v1.0.0 — no independent stick joint; stick_angle action controls body vrot
 - [Phase 01-environment]: Possession detection uses stick tip approximation (agent_pos + 0.4m facing direction) — avoids contact-sensor complexity
+- [Phase 01-environment]: Hand-written gym.Env over Shimmy: explicit control over 22-float obs layout which is the ONNX/JS cross-boundary contract
+- [Phase 01-environment]: _entities_attached guard in HockeyTask.initialize_episode_mjcf: dm_control calls this hook on every reset, not just first compile
 
 ### Pending Todos
 
@@ -87,6 +90,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T18:34:33.768Z
-Stopped at: Completed 01-environment-01-03-PLAN.md
+Last session: 2026-03-29T18:41:06.599Z
+Stopped at: Completed 01-environment-01-04-PLAN.md
 Resume file: None
