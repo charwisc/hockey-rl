@@ -252,3 +252,52 @@ def test_subproc_vec_env():
         ])
         obs, rewards, dones, infos = venv.step(actions)
     venv.close()
+
+
+# ---------------------------------------------------------------------------
+# Integration tests for train.py
+# ---------------------------------------------------------------------------
+
+def test_train_parse_args_defaults(monkeypatch):
+    """train.py parse_args returns correct defaults."""
+    monkeypatch.setattr("sys.argv", ["train.py"])
+    # Remove cached train module so fresh import picks up the mocked SB3
+    sys.modules.pop("train", None)
+    from train import parse_args
+    args = parse_args()
+    assert args.total_steps == 100_000_000
+    assert args.n_envs == 16
+    assert args.resume is None
+
+
+def test_train_parse_args_custom(monkeypatch):
+    """train.py parse_args handles custom values."""
+    monkeypatch.setattr("sys.argv", ["train.py", "--total-steps", "50000000", "--n-envs", "8"])
+    sys.modules.pop("train", None)
+    from train import parse_args
+    args = parse_args()
+    assert args.total_steps == 50_000_000
+    assert args.n_envs == 8
+
+
+def test_train_make_env():
+    """make_env returns callable that creates HockeyEnv."""
+    sys.modules.pop("train", None)
+    from train import make_env
+    fn = make_env(agent_idx=0)
+    assert callable(fn)
+    env = fn()
+    assert hasattr(env, 'opponent_path')
+    assert env.observation_space.shape == (22,)
+    assert env.action_space.shape == (4,)
+    env.close()
+
+
+def test_train_imports():
+    """All training module imports resolve."""
+    from training.self_play_callback import SelfPlayPoolCallback
+    from training.checkpoint_callback import WallTimeCheckpointCallback
+    from training.tb_callback import TensorBoardCustomCallback
+    assert SelfPlayPoolCallback is not None
+    assert WallTimeCheckpointCallback is not None
+    assert TensorBoardCustomCallback is not None
