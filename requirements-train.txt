@@ -1,0 +1,8 @@
+# RunPod training dependencies
+# Pin torch to match CLAUDE.md spec; cu126 wheels for RTX 4090 / CUDA 12.x
+torch==2.11 --extra-index-url https://download.pytorch.org/whl/cu126
+stable-baselines3==2.7.1
+tensorboard>=2.0
+dm-control==1.0.38
+gymnasium==0.29.1
+numpy
