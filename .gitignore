@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+*.egg-info/
+
+# Training artifacts (too large for git — stored on RunPod /workspace)
+checkpoints/
+*.zip
+*.pkl
+tb_logs/
+
+# ONNX
+*.onnx
+
+# MuJoCo
+*.mjcf.bak
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# GSD worktrees (local only)
+.claude/worktrees/
