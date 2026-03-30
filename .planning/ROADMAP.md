@@ -44,7 +44,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. TensorBoard logs are downloadable and contain episode reward, goal rate, and puck possession per checkpoint
 **Plans**: 2 plans
 Plans:
-- [ ] 02-01-PLAN.md — SB3 callbacks (self-play pool, wall-time checkpoint, TensorBoard) + HockeyEnv opponent_path bridge
+- [x] 02-01-PLAN.md — SB3 callbacks (self-play pool, wall-time checkpoint, TensorBoard) + HockeyEnv opponent_path bridge
 - [ ] 02-02-PLAN.md — train.py entry point, requirements-train.txt, integration tests
 
 ### Phase 3: ONNX Export
@@ -89,7 +89,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Environment | 0/TBD | Not started | - |
-| 2. Training | 0/2 | Planned | - |
+| 2. Training | 1/2 | In Progress|  |
 | 3. ONNX Export | 0/TBD | Not started | - |
 | 4. Browser Core | 0/TBD | Not started | - |
 | 5. UI, Polish & Deploy | 0/TBD | Not started | - |

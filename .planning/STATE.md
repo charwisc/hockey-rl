@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Completed 01-environment-01-04-PLAN.md
-last_updated: "2026-03-29T18:44:19.172Z"
-last_activity: 2026-03-29
+status: executing
+stopped_at: Completed 02-training-02-01-PLAN.md
+last_updated: "2026-03-30T11:43:20.921Z"
+last_activity: 2026-03-30
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 6
+  completed_plans: 5
   percent: 0
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-28)
 
 **Core value:** End-to-end ML engineering artifact — dm_control env, self-play PPO training, ONNX export, browser inference — demonstrating RL systems fluency to technical hiring managers
-**Current focus:** Phase 01 — environment
+**Current focus:** Phase 02 — training
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
-Status: Phase complete — ready for verification
-Last activity: 2026-03-29
+Phase: 02 (training) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
+Last activity: 2026-03-30
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-environment P02 | 2 | 2 tasks | 3 files |
 | Phase 01-environment P03 | 3 | 2 tasks | 2 files |
 | Phase 01-environment P04 | 4 | 3 tasks | 8 files |
+| Phase 02-training P01 | 3 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,8 @@ Recent decisions affecting current work:
 - [Phase 01-environment]: Possession detection uses stick tip approximation (agent_pos + 0.4m facing direction) — avoids contact-sensor complexity
 - [Phase 01-environment]: Hand-written gym.Env over Shimmy: explicit control over 22-float obs layout which is the ONNX/JS cross-boundary contract
 - [Phase 01-environment]: _entities_attached guard in HockeyTask.initialize_episode_mjcf: dm_control calls this hook on every reset, not just first compile
+- [Phase 02-training]: SelfPlayPoolCallback fires every 500k timesteps, max pool size 20, evicts oldest; WallTimeCheckpointCallback saves step_{N}.zip + vecnorm.pkl every 30 min wall-clock
+- [Phase 02-training]: HockeyEnv.opponent_path property + model-caching closure enables SubprocVecEnv.set_attr bridge without subprocess restart
 
 ### Pending Todos
 
@@ -90,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T18:41:06.599Z
-Stopped at: Completed 01-environment-01-04-PLAN.md
+Last session: 2026-03-30T11:43:20.915Z
+Stopped at: Completed 02-training-02-01-PLAN.md
 Resume file: None
