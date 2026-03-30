@@ -13,7 +13,7 @@ This project follows a hard pipeline dependency: build the Python dm_control env
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Environment** - Working dm_control 2v2 hockey env with locked observation spec
-- [ ] **Phase 2: Training** - Self-play PPO training pipeline executed on RunPod RTX 4090
+- [x] **Phase 2: Training** - Self-play PPO training pipeline executed on RunPod RTX 4090 (completed 2026-03-30)
 - [ ] **Phase 3: ONNX Export** - Policy exported, numerically validated, artifacts uploaded to R2
 - [ ] **Phase 4: Browser Core** - JS physics mirror + onnxruntime-web inference + Three.js renderer
 - [ ] **Phase 5: UI, Polish & Deploy** - Scoreboard, reward curve, Vercel deploy with COOP/COEP headers
@@ -45,7 +45,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 Plans:
 - [x] 02-01-PLAN.md — SB3 callbacks (self-play pool, wall-time checkpoint, TensorBoard) + HockeyEnv opponent_path bridge
-- [ ] 02-02-PLAN.md — train.py entry point, requirements-train.txt, integration tests
+- [x] 02-02-PLAN.md — train.py entry point, requirements-train.txt, integration tests
 
 ### Phase 3: ONNX Export
 **Goal**: The trained SB3 policy is exported to ONNX opset 17/18, VecNormalize stats are exported as a sidecar JSON, and a numerical parity validation script confirms action delta < threshold — this gate must pass before any browser integration begins
@@ -89,7 +89,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Environment | 0/TBD | Not started | - |
-| 2. Training | 1/2 | In Progress|  |
+| 2. Training | 2/2 | Complete   | 2026-03-30 |
 | 3. ONNX Export | 0/TBD | Not started | - |
 | 4. Browser Core | 0/TBD | Not started | - |
 | 5. UI, Polish & Deploy | 0/TBD | Not started | - |

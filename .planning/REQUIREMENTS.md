@@ -20,7 +20,7 @@
 ### Training
 
 - [x] **TRAIN-01**: Self-play uses a historical opponent pool of ~20 checkpoints; pool updated every ~500k training steps with 50% latest / 50% historical mix
-- [ ] **TRAIN-02**: SubprocVecEnv configured for 8–16 parallel environments on RunPod RTX 4090
+- [x] **TRAIN-02**: SubprocVecEnv configured for 8–16 parallel environments on RunPod RTX 4090
 - [x] **TRAIN-03**: Checkpoints saved every 30 minutes of wall-time, labelled by step count; target 50–100M steps in 8–10 hour run
 - [x] **TRAIN-04**: TensorBoard logging records episode reward, goal rate, and puck possession stats per checkpoint
 
