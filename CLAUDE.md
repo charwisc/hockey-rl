@@ -11,7 +11,7 @@ A reinforcement learning project that trains 4 agents to play 2v2 ice hockey fro
 
 - **Tech Stack**: dm_control + MuJoCo 3+ (not mujoco-py — deprecated)
 - **Tech Stack**: SB3 PPO, PyTorch, onnxruntime-web, Three.js, Chart.js
-- **Infra**: Single RTX 4090 on RunPod (no multi-node, no TPU)
+- **Infra**: RTX 5090 on RunPod (no multi-node, no TPU)
 - **Deploy**: Static site only — no server runtime; all inference client-side
 - **Budget**: Cloudflare R2 free tier sufficient for 6–8 checkpoint ONNX files (~few hundred MB total)
 <!-- GSD:project-end -->
@@ -31,7 +31,7 @@ A reinforcement learning project that trains 4 agents to play 2v2 ice hockey fro
 | Gymnasium | 0.29.x | Env API standard | SB3 2.7.1 target API; Shimmy converts dm_control to Gymnasium |
 | Shimmy | 1.x | dm_control → Gymnasium bridge | Farama-Foundation conversion wrapper; mandatory for SB3 to consume dm_control envs |
 | TensorBoard | 2.x | Training metrics | Built into SB3 logger; episode reward, goal rate, possession curves |
-| CUDA | 12.x | GPU training | Matches RTX 4090 / RunPod image; PyTorch 2.11 ships cu126 wheels |
+| CUDA | 12.8+ | GPU training | Matches RTX 5090 (Blackwell) / RunPod image; PyTorch 2.11 ships cu128 wheels |
 ### ONNX Export Pipeline
 | Technology | Version | Purpose | Why |
 |------------|---------|---------|-----|
