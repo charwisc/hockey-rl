@@ -32,7 +32,12 @@ class HockeyEnv(gym.Env):
                  time_limit: float = 60.0):
         super().__init__()
         self._agent_idx = agent_idx
-        self._frozen_opponent_fn = frozen_opponent_fn or self._random_action
+
+        # Opponent path and model-caching for set_attr bridge (SubprocVecEnv)
+        self._opponent_path: str | None = None
+        self._opponent_model_cache: dict = {"path": None, "model": None}
+        self._use_external_opponent = frozen_opponent_fn is not None
+        self._frozen_opponent_fn = frozen_opponent_fn or self._default_opponent_fn
 
         # Build dm_control environment
         self._arena = HockeyArena()
@@ -135,7 +140,35 @@ class HockeyEnv(gym.Env):
 
         return controls
 
+    @property
+    def opponent_path(self) -> "str | None":
+        """Current opponent checkpoint path used by the model-caching closure."""
+        return self._opponent_path
+
+    @opponent_path.setter
+    def opponent_path(self, value: "str | None") -> None:
+        """Set opponent path. SubprocVecEnv.set_attr('opponent_path', path)
+        calls this setter in each worker process."""
+        self._opponent_path = value
+
+    def _default_opponent_fn(self, obs: np.ndarray) -> np.ndarray:
+        """Opponent function driven by self._opponent_path with model caching.
+
+        - If path is None or "random": returns random action.
+        - If path matches cache: reuses loaded model (no re-load).
+        - Otherwise: loads PPO from path, updates cache.
+        """
+        path = self._opponent_path
+        if path is None or path == "random":
+            return np.random.uniform(-1.0, 1.0, size=(4,)).astype(np.float32)
+        if path != self._opponent_model_cache["path"]:
+            from stable_baselines3 import PPO
+            self._opponent_model_cache["model"] = PPO.load(path, device="cpu")
+            self._opponent_model_cache["path"] = path
+        action, _ = self._opponent_model_cache["model"].predict(obs, deterministic=True)
+        return np.asarray(action, dtype=np.float32)
+
     @staticmethod
     def _random_action(obs: np.ndarray) -> np.ndarray:
-        """Default opponent: random actions in [-1, 1]."""
+        """Fallback static random action (kept for backward compatibility)."""
         return np.random.uniform(-1.0, 1.0, size=(4,)).astype(np.float32)
